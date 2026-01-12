@@ -333,29 +333,23 @@ async function startWebRTCCall(callType, isInitiator = true) {
         });
 
         peerConnection.ontrack = (event) => {
-            console.log("[WebRTC CLIENT] ontrack fired", event.streams);
+            console.log("[WebRTC CLIENT] ontrack fired", event.track.kind);
 
-            const stream = event.streams[0];
-
-            if (!remoteVideo.srcObject) {
-                    remoteVideo.srcObject = stream;
-
-                    // 🔑 CRITICAL browser requirements
-                    remoteVideo.autoplay = true;
-                    remoteVideo.playsInline = true;
-                    remoteVideo.muted = true; // REQUIRED to allow autoplay
-
-                    // Force play
-                    remoteVideo
-                    .play()
-                    .then(() => {
-                        console.log("[WebRTC CLIENT] Remote video playing");
-                    })
-                    .catch(err => {
-                        console.error("[WebRTC CLIENT] Remote video play failed", err);
-                    });
+            // Use the stream from the event, or create a new one if not present
+            if (event.streams && event.streams[0]) {
+                remoteVideo.srcObject = event.streams[0];
+            } else {
+                if (!remoteVideo.srcObject) {
+                    remoteVideo.srcObject = new MediaStream();
                 }
-                };
+                remoteVideo.srcObject.addTrack(event.track);
+            }
+
+            // Ensure the video plays
+            remoteVideo.play().catch(err => {
+                console.warn("[WebRTC CLIENT] Remote video play deferred:", err);
+            });
+        };
 
 
         peerConnection.onicecandidate = (event) => {
