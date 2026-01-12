@@ -13,13 +13,13 @@ let amInitiator = false;
 
 const configuration = {
   iceServers: [
+    { urls: "stun:stun.l.google.com:19302" },
     {
       urls: "turn:vc.4rc.in:3478",
       username: "admin",
       credential: "password123"
     }
-  ],
-  iceTransportPolicy: "relay"
+  ]
 };
 
 
