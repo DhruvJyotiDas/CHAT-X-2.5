@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: chat-x-node
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    rootDir: .
+    autoDeploy: true
+
+  - type: web
+    name: chat-x-python
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn ml.spam_api:app --host 0.0.0.0 --port 8000
+    rootDir: .
+    autoDeploy: true

@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+venv/
+.venv/
+
+# Machine Learning specific (if these are generated/large)
+ml/spam_model.joblib
+ml/vectorizer.joblib
+ml/spam_dataset.csv
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS and IDE specific
+.DS_Store
+.env
+.vscode/
+.idea/
+*.swp
+.tmp/
+temp/

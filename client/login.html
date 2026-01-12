@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dark Yellow Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1c2526, #2d3536);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container {
+            background-color: #252525;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            border: 2px solid #eaff00;
+            animation: pixelFadeIn 1s ease-out;
+        }
+
+        @keyframes pixelFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h1 {
+            font-family: 'Press Start 2P', cursive;
+            color: #eaff00;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .login-header p {
+            color: #8892b0;
+            font-size: 0.9em;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #eaff00;
+            font-weight: 500;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 5px;
+            border: 2px solid #eaff00;
+            background-color: #1c2526;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 8px rgba(234, 255, 0, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(90deg, #eaff00, #ffd700);
+            color: #1c2526;
+            border: 2px solid #000;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', cursive;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #ffd700, #eaff00);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(234, 255, 0, 0.5);
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .register-link p {
+            color: #8892b0;
+            font-size: 0.9em;
+        }
+
+        .register-link a {
+            color: #eaff00;
+            text-decoration: none;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+            color: #ffd700;
+        }
+
+        /* Floating Icons */
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0.3;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 20%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .floating-icon:nth-child(3) {
+            top: 50%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .floating-icon:nth-child(4) {
+            top: 70%;
+            left: 70%;
+            animation-delay: 6s;
+        }
+
+        .floating-icon:nth-child(5) {
+            top: 30%;
+            left: 50%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Sign In</h1>
+            <p>Welcome back! Please login to your account</p>
+        </div>
+
+        <form class="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            </div>
+
+            <button type="submit" class="submit-btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="register.html">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Floating Animated Icons -->
+    <div class="floating-icons">
+        <span class="floating-icon">💻</span>
+        <span class="floating-icon">📷</span>
+        <span class="floating-icon">🎧</span>
+        <span class="floating-icon">☕</span>
+        <span class="floating-icon">📚</span>
+    </div>
+    <script>
+        const API_BASE_URL = window.location.origin;
+
+        document.querySelector(".login-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const data = await res.json();
+                console.log("Login response:", data);
+
+                if (res.ok) {
+                    // Removed alert for login success to avoid annoying popup
+                    // alert("Login successful!");
+
+                    // Store login info for index.html to auto-connect
+                    sessionStorage.setItem("username", username);
+                    sessionStorage.setItem("password", password);
+
+                    // Redirect to chat UI
+                    window.location.href = "index.html";
+                } else {
+                    alert(data.error || "Login failed.");
+                }
+            } catch (error) {
+                console.error("Login error:", error);
+                alert("Failed to connect to server.");
+            }
+        });
+    </script>
+</body>
+</html>

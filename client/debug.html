@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Page</title>
+    <script>
+        console.log("Debug page loaded");
+        function testPaths() {
+            console.log("Testing file paths...");
+            // Test CSS file
+            fetch('/css/style.css')
+                .then(r => console.log('CSS status:', r.status, r.statusText))
+                .catch(e => console.error('CSS fetch error:', e));
+            
+            // Test JS file
+            fetch('/js/script.js')
+                .then(r => console.log('JS status:', r.status, r.statusText))
+                .catch(e => console.error('JS fetch error:', e));
+            
+            // Test WebSocket connection
+            const ws = new WebSocket('wss://chat-x-2-3.onrender.com');
+            ws.onopen = () => console.log('WebSocket connected');
+            ws.onerror = (e) => console.error('WebSocket error:', e);
+        }
+        window.addEventListener('DOMContentLoaded', testPaths);
+    </script>
+</head>
+<body>
+    <h1>Debug Page</h1>
+    <p>Check browser console (F12) for diagnostic information:</p>
+    <ul>
+        <li>CSS file loading status</li>
+        <li>JS file loading status</li>
+        <li>WebSocket connection status</li>
+    </ul>
+</body>
+</html>

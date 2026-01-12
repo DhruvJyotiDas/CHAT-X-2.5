@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1c2526, #2d3536);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-container {
+            background-color: #252525;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 450px;
+            padding: 2rem;
+            border: 2px solid #eaff00;
+            animation: pixelFadeIn 1s ease-out;
+        }
+
+        @keyframes pixelFadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .register-header h1 {
+            font-family: 'Press Start 2P', cursive;
+            color: #eaff00;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .register-header p {
+            color: #8892b0;
+            font-size: 0.9em;
+        }
+
+        .register-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .register-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #eaff00;
+            font-weight: 500;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .register-form input,
+        .register-form select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 5px;
+            border: 2px solid #eaff00;
+            background-color: #1c2526;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .register-form input:focus,
+        .register-form select:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 8px rgba(234, 255, 0, 0.5);
+        }
+
+        .profile-pic-container {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-input-label {
+            background: linear-gradient(90deg, #eaff00, #ffd700);
+            color: #1c2526;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 2px solid #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .file-input-label:hover {
+            background: linear-gradient(90deg, #ffd700, #eaff00);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(234, 255, 0, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(90deg, #eaff00, #ffd700);
+            color: #1c2526;
+            border: 2px solid #000;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Press Start 2P', cursive;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #ffd700, #eaff00);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(234, 255, 0, 0.5);
+        }
+
+        /* Floating Icons */
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0.3;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .floating-icon:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { top: 20%; left: 80%; animation-delay: 2s; }
+        .floating-icon:nth-child(3) { top: 50%; left: 10%; animation-delay: 4s; }
+        .floating-icon:nth-child(4) { top: 70%; left: 70%; animation-delay: 6s; }
+        .floating-icon:nth-child(5) { top: 30%; left: 50%; animation-delay: 8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-header">
+            <h1>Register</h1>
+            <p>Create your account</p>
+        </div>
+
+        <form class="register-form" id="registerForm">
+            <div class="profile-pic-container">
+                <label class="file-input-label" for="profilePic">Upload Profile Picture</label>
+                <input type="file" id="profilePic" accept="image/jpeg" style="display: none;">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="non-binary">Non-binary</option>
+                    <option value="other">Other</option>
+                    <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+
+    <!-- Floating Animated Icons -->
+    <div class="floating-icons">
+        <span class="floating-icon">💻</span>
+        <span class="floating-icon">📷</span>
+        <span class="floating-icon">🎧</span>
+        <span class="floating-icon">☕</span>
+        <span class="floating-icon">📚</span>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", async function(event) {
+          event.preventDefault();
+        
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const dob = document.getElementById("dob").value;
+          const gender = document.getElementById("gender").value;
+        
+          const res = await fetch(`${window.location.origin}/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password, dob, gender })
+          });
+        
+          const data = await res.json();
+          if (res.ok) {
+            alert("Registered successfully!");
+            window.location.href = "login.html";
+          } else {
+            alert(data.error || "Registration failed.");
+          }
+        });
+        </script>
+        
+</body>
+</html>
