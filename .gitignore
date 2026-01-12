@@ -12,9 +12,9 @@ venv/
 .venv/
 
 # Machine Learning specific (if these are generated/large)
-ml/spam_model.joblib
-ml/vectorizer.joblib
-ml/spam_dataset.csv
+# ml/spam_model.joblib
+# ml/vectorizer.joblib
+# ml/spam_dataset.csv
 
 # Logs
 *.log

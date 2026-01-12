@@ -1,12 +1,16 @@
 import pandas as pd
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 import joblib
 
+# Get the directory of the current script
+base_dir = os.path.dirname(__file__)
+
 # Load dataset
-data = pd.read_csv('spam_dataset.csv')
+data = pd.read_csv(os.path.join(base_dir, 'spam_dataset.csv'))
 
 # Features and labels
 X = data['message']
@@ -29,5 +33,5 @@ y_pred = model.predict(X_test_vec)
 print(classification_report(y_test, y_pred))
 
 # Save model and vectorizer
-joblib.dump(model, 'spam_model.joblib')
-joblib.dump(vectorizer, 'vectorizer.joblib')
+joblib.dump(model, os.path.join(base_dir, 'spam_model.joblib'))
+joblib.dump(vectorizer, os.path.join(base_dir, 'vectorizer.joblib'))
